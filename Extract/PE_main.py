@@ -113,7 +113,7 @@ def extract_infos(fpath):
     raw_sizes = list(map(lambda x:x.SizeOfRawData, pe.sections))
     res['SectionsMeanRawsize'] = sum(raw_sizes)/float(len((raw_sizes)))
     res['SectionsMinRawsize'] = min(raw_sizes)
-    res['SectionsMaxRawsize'] = max(raw_sizes)
+    res['SectionMaxRawsize'] = max(raw_sizes)
     virtual_sizes = list(map(lambda x:x.Misc_VirtualSize, pe.sections))
     res['SectionsMeanVirtualsize'] = sum(virtual_sizes)/float(len(virtual_sizes))
     res['SectionsMinVirtualsize'] = min(virtual_sizes)

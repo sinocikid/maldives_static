@@ -177,7 +177,7 @@ if __name__ == '__main__':
 
     
     #Loading the model
-    with open('Extract/my_model.pkl', 'rb') as file:
+    with open('Generator/my_model.pkl', 'rb') as file:
         model = pickle.load(file)
     
     #extracting features from the PE file mentioned in the argument 

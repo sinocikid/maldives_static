@@ -175,7 +175,6 @@ def extract_infos(fpath):
 
 if __name__ == '__main__':
 
-    
     #Loading the model
     with open('Generator/my_model.pkl', 'rb') as file:
         model = pickle.load(file)
@@ -200,10 +199,3 @@ if __name__ == '__main__':
     with open('Generator/model_accuracy.txt', 'r') as file:
         accuracy = float(file.read().strip())
         print(f'Model accuracy: {accuracy:.3f}')
-
-    # Read and print the accuracy
-    #with open('Generator/model_accuracy.txt', 'r') as file:
-    #    accuracy = file.read().strip()
-    #    print(f'Model accuracy: {accuracy}')
-
- 

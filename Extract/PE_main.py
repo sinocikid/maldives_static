@@ -5,7 +5,6 @@ import pickle
 import sys
 import pandas as pd
 
-
 #For calculating the entropy
 def get_entropy(data):
     if len(data) == 0:
@@ -188,7 +187,19 @@ if __name__ == '__main__':
 
     
     #prediciting if the PE is malicious or not based on the extracted features
-    predictions = model.predict(new_data)
+    
+    # Read the accuracy from the file
+    with open('Generator/model_accuracy.txt', 'r') as file:
+        accuracy = float(file.read().strip())
+
+    # Set a threshold based on the accuracy
+    threshold = 0.5 if accuracy > 0.8 else 0.6
+
+    # Get the prediction probabilities
+    probs = model.predict_proba(new_data)
+
+    # Predict 1 if the probability of 1 is greater than the threshold
+    predictions = [1 if p[1] > threshold else 0 for p in probs[0]]
     
     #predictions = [1 if p >= 0.5 else 0 for p in predictions]
     result = 'malicious' if predictions == 0 else 'legitimate'
